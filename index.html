@@ -343,20 +343,52 @@ function render(){
 
 function cardH(m,lang){
   const isLive=m.status==="live";const isDone=m.status==="finished";
+  const isF=m.isF;
+
+  // Cricket card — vertical layout
+  if(!isF){
+    return`<div class="card" onclick="openDetail(${m._idx})">
+      <div class="card-top">
+        <span class="league">🏏 ${m.league}</span>
+        ${isLive?`<span class="stag s-live"><span class="dot dot-red"></span>${lang==="bn"?"লাইভ":"LIVE"}</span>`:""}
+        ${isDone?`<span class="stag s-ft">${lang==="bn"?"শেষ":"FT"}</span>`:""}
+        ${m.status==="upcoming"?`<span class="stag s-up">${lang==="bn"?"আসছে":"Upcoming"}</span>`:""}
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:8px;flex:1">
+            ${tlogo(m.homeName,false)}
+            <span style="font-size:14px;font-weight:700;color:var(--text)">${m.homeName}</span>
+          </div>
+          <span style="font-size:16px;font-weight:800;color:${isLive?"var(--red)":"var(--text)"};font-family:'Inter',sans-serif">${m.homeScore||"—"} <span style="font-size:11px;color:var(--text3);font-weight:400">${m.homeOvers?"("+m.homeOvers+")":""}</span></span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <div style="display:flex;align-items:center;gap:8px;flex:1">
+            ${tlogo(m.awayName,false)}
+            <span style="font-size:14px;font-weight:700;color:var(--text)">${m.awayName}</span>
+          </div>
+          <span style="font-size:16px;font-weight:800;color:var(--text2);font-family:'Inter',sans-serif">${m.awayScore||"—"} <span style="font-size:11px;color:var(--text3);font-weight:400">${m.awayOvers?"("+m.awayOvers+")":""}</span></span>
+        </div>
+      </div>
+      ${m.venue?`<div class="cbot">📍 ${m.venue}</div>`:""}
+    </div>`;
+  }
+
+  // Football card — horizontal layout
   return`<div class="card" onclick="openDetail(${m._idx})">
     <div class="card-top">
-      <span class="league">${m.isF?"⚽":"🏏"} ${m.league}</span>
-      ${isLive?`<span class="stag s-live"><span class="dot dot-red"></span>${m.isF&&m.minute?bnN(m.minute)+"′ ":""}${lang==="bn"?"লাইভ":"LIVE"}</span>`:""}
+      <span class="league">⚽ ${m.league}</span>
+      ${isLive?`<span class="stag s-live"><span class="dot dot-red"></span>${m.minute?bnN(m.minute)+"′ ":""}${lang==="bn"?"লাইভ":"LIVE"}</span>`:""}
       ${m.status==="upcoming"?`<span class="stag s-up">${fmtTime(m.utcDate)||""}</span>`:""}
       ${isDone?`<span class="stag s-ft">${lang==="bn"?"শেষ":"FT"}</span>`:""}
     </div>
     <div class="teams">
-      <div class="team">${tlogo(m.homeName,false)}<div class="tinfo"><div class="tname">${m.homeName}</div>${!m.isF&&m.homeScore?`<div class="csc">${m.homeScore}${m.homeOvers?` <span class="cov">(${m.homeOvers})</span>`:""}</div>`:""}</div></div>
+      <div class="team">${tlogo(m.homeName,false)}<div class="tinfo"><div class="tname">${m.homeName}</div></div></div>
       <div class="scbox">
-        ${m.isF&&(isLive||isDone)&&m.homeScore!==null?`<div class="scn ${isLive?"live":""}">${m.homeScore??"-"}<span class="scsep">–</span>${m.awayScore??"-"}</div>${isLive&&m.minute?`<div class="scmin">${bnN(m.minute)}′</div>`:""}`:""}
+        ${(isLive||isDone)&&m.homeScore!==null?`<div class="scn ${isLive?"live":""}">${m.homeScore??"-"}<span class="scsep">–</span>${m.awayScore??"-"}</div>${isLive&&m.minute?`<div class="scmin">${bnN(m.minute)}′</div>`:""}`:""}
         ${m.status==="upcoming"?`<div class="scvs">VS</div><div class="sctime">${fmtTime(m.utcDate)||""}</div>`:""}
       </div>
-      <div class="team away">${tlogo(m.awayName,false)}<div class="tinfo"><div class="tname">${m.awayName}</div>${!m.isF&&m.awayScore?`<div class="csc away">${m.awayScore}${m.awayOvers?` <span class="cov">(${m.awayOvers})</span>`:""}</div>`:""}</div></div>
+      <div class="team away">${tlogo(m.awayName,false)}<div class="tinfo"><div class="tname">${m.awayName}</div></div></div>
     </div>
     ${m.venue?`<div class="cbot">📍 ${m.venue}</div>`:""}
   </div>`;
