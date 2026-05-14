@@ -6,698 +6,504 @@
 <title>স্কোর কত</title>
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0d1117;
-    --bg2: #161b22;
-    --bg3: #21262d;
-    --border: #30363d;
-    --text: #e6edf3;
-    --text2: #8b949e;
-    --text3: #484f58;
-    --green: #3fb950;
-    --blue: #58a6ff;
-    --red: #f85149;
-    --yellow: #d29922;
-  }
-  .light {
-    --bg: #ffffff;
-    --bg2: #f6f8fa;
-    --bg3: #eaeef2;
-    --border: #d0d7de;
-    --text: #1f2328;
-    --text2: #656d76;
-    --text3: #9198a1;
-    --green: #1a7f37;
-    --blue: #0969da;
-    --red: #cf222e;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Hind Siliguri', sans-serif;
-    min-height: 100vh;
-    transition: background .2s, color .2s;
-  }
-  body.en { font-family: 'Inter', sans-serif; }
+:root{--bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--border:#30363d;--text:#e6edf3;--text2:#8b949e;--text3:#484f58;--green:#3fb950;--blue:#58a6ff;--red:#f85149;}
+.light{--bg:#ffffff;--bg2:#f6f8fa;--bg3:#eaeef2;--border:#d0d7de;--text:#1f2328;--text2:#656d76;--text3:#9198a1;--green:#1a7f37;--blue:#0969da;--red:#cf222e;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Hind Siliguri',sans-serif;min-height:100vh;transition:background .2s,color .2s}
+body.en{font-family:'Inter',sans-serif}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 
-  /* NAV */
-  .nav {
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    padding: 0 16px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    position: sticky;
-    top: 0;
-    z-index: 99;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--text);
-    text-decoration: none;
-    flex-shrink: 0;
-  }
-  .logo-dot {
-    width: 28px; height: 28px;
-    background: var(--green);
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 800; color: #fff;
-  }
-  .nav-mid {
-    display: flex;
-    gap: 2px;
-    flex: 1;
-  }
-  .ntab {
-    padding: 5px 12px;
-    border: none;
-    background: transparent;
-    color: var(--text2);
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 6px;
-    font-family: inherit;
-    transition: all .15s;
-    white-space: nowrap;
-  }
-  .ntab:hover { background: var(--bg3); color: var(--text); }
-  .ntab.on { background: var(--bg3); color: var(--text); }
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-left: auto;
-    flex-shrink: 0;
-  }
-  .sport-tog {
-    display: flex;
-    background: var(--bg3);
-    border-radius: 6px;
-    padding: 2px;
-    gap: 2px;
-  }
-  .sbtn {
-    padding: 4px 10px;
-    border: none;
-    border-radius: 5px;
-    background: transparent;
-    color: var(--text2);
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all .15s;
-    white-space: nowrap;
-  }
-  .sbtn.on {
-    background: var(--bg2);
-    color: var(--text);
-    box-shadow: 0 1px 3px rgba(0,0,0,.2);
-  }
-  .ibtn {
-    width: 30px; height: 30px;
-    border: 1px solid var(--border);
-    background: var(--bg3);
-    color: var(--text2);
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 13px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .lbtn {
-    height: 30px;
-    padding: 0 10px;
-    border: 1px solid var(--border);
-    background: var(--bg3);
-    color: var(--text2);
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 11px;
-    font-weight: 700;
-    font-family: 'Inter', sans-serif;
-    white-space: nowrap;
-  }
+/* NAV */
+.nav{height:52px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 16px;gap:12px;position:sticky;top:0;z-index:99}
+.logo{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700;color:var(--text);text-decoration:none;flex-shrink:0}
+.logo-mark{width:28px;height:28px;background:var(--green);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff}
+.nav-mid{display:flex;gap:2px;flex:1}
+.ntab{padding:5px 12px;border:none;background:transparent;color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;border-radius:6px;font-family:inherit;transition:all .15s;white-space:nowrap}
+.ntab:hover{background:var(--bg3);color:var(--text)}
+.ntab.on{background:var(--bg3);color:var(--text)}
+.nav-r{display:flex;align-items:center;gap:6px;margin-left:auto;flex-shrink:0}
+.stog{display:flex;background:var(--bg3);border-radius:6px;padding:2px;gap:2px}
+.sbtn{padding:4px 10px;border:none;border-radius:5px;background:transparent;color:var(--text2);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap}
+.sbtn.on{background:var(--bg2);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.ibtn{width:30px;height:30px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);border-radius:6px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center}
+.lbtn{height:30px;padding:0 10px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);border-radius:6px;cursor:pointer;font-size:11px;font-weight:700;font-family:'Inter',sans-serif}
 
-  /* DATE */
-  .datebar {
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    padding: 0 16px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    overflow-x: auto;
-  }
-  .dtab {
-    padding: 3px 12px;
-    border: none;
-    border-radius: 20px;
-    background: transparent;
-    color: var(--text3);
-    font-size: 12px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: inherit;
-    white-space: nowrap;
-    transition: all .15s;
-  }
-  .dtab:hover { color: var(--text2); }
-  .dtab.on { background: var(--green); color: #fff; }
+/* DATE */
+.datebar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 16px;height:38px;display:flex;align-items:center;gap:4px;overflow-x:auto}
+.dtab{padding:3px 12px;border:none;border-radius:20px;background:transparent;color:var(--text3);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .15s}
+.dtab:hover{color:var(--text2)}
+.dtab.on{background:var(--green);color:#fff}
 
-  /* LAYOUT */
-  .wrap {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 16px;
-    display: grid;
-    grid-template-columns: 1fr 280px;
-    gap: 16px;
-  }
-  @media (max-width: 800px) {
-    .wrap { grid-template-columns: 1fr; }
-    .sidebar { display: none; }
-  }
-  @media (max-width: 480px) {
-    .wrap { padding: 8px; padding-bottom: 72px; }
-    .nav-mid { display: none; }
-    .sport-tog { display: none; }
-  }
+/* LAYOUT */
+.wrap{max-width:1100px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1fr 280px;gap:16px}
+@media(max-width:800px){.wrap{grid-template-columns:1fr}.sidebar{display:none}}
+@media(max-width:480px){.wrap{padding:8px;padding-bottom:72px}.nav-mid,.stog{display:none}}
 
-  /* SECTION */
-  .slabel {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .8px;
-    color: var(--text3);
-    margin: 14px 0 8px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding-bottom: 6px;
-    border-bottom: 1px solid var(--border);
-  }
-  .slabel:first-child { margin-top: 0; }
-  .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
-  .dot-red { background: var(--red); animation: blink 1.2s infinite; }
-  .dot-blue { background: var(--blue); }
-  .dot-gray { background: var(--text3); }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+/* SECTION */
+.slabel{font-size:11px;font-weight:700;letter-spacing:.8px;color:var(--text3);margin:14px 0 8px;display:flex;align-items:center;gap:6px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.slabel:first-child{margin-top:0}
+.dot{width:6px;height:6px;border-radius:50%;display:inline-block;flex-shrink:0}
+.dot-red{background:var(--red);animation:blink 1.2s infinite}
+.dot-blue{background:var(--blue)}
+.dot-gray{background:var(--text3)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-  /* CARD */
-  .card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 14px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    transition: border-color .15s, transform .15s;
-  }
-  .card:hover { border-color: var(--text3); transform: translateY(-1px); }
-  .card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  .league { font-size: 11px; color: var(--text3); font-weight: 600; }
-  .status { font-size: 11px; font-weight: 700; display: flex; align-items: center; gap: 4px; }
-  .s-live { color: var(--red); }
-  .s-up { color: var(--blue); }
-  .s-ft { color: var(--text3); }
+/* CARD */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px 14px;margin-bottom:8px;cursor:pointer;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--text3);transform:translateY(-1px)}
+.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.league{font-size:11px;color:var(--text3);font-weight:600}
+.status{font-size:11px;font-weight:700;display:flex;align-items:center;gap:4px}
+.s-live{color:var(--red)}
+.s-up{color:var(--blue)}
+.s-ft{color:var(--text3)}
 
-  /* TEAMS */
-  .teams {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .team { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; }
-  .team.away { flex-direction: row-reverse; }
-  .team.away .tinfo { text-align: right; }
-  .flag { font-size: 28px; flex-shrink: 0; line-height: 1; }
-  .badge {
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800;
-    color: #fff; flex-shrink: 0;
-    font-family: 'Inter', sans-serif;
-  }
-  .tname { font-size: 14px; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .csc { font-size: 12px; font-weight: 700; color: var(--green); margin-top: 2px; }
-  .csc.away { color: var(--text2); }
-  .cov { font-size: 10px; font-weight: 400; color: var(--text3); }
+/* TEAMS */
+.teams{display:flex;align-items:center;gap:8px}
+.team{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+.team.away{flex-direction:row-reverse}
+.team.away .tinfo{text-align:right}
+.flag{font-size:26px;flex-shrink:0;line-height:1}
+.badge{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;flex-shrink:0;font-family:'Inter',sans-serif}
+.tname{font-size:14px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.csc{font-size:12px;font-weight:700;color:var(--green);margin-top:2px}
+.csc.away{color:var(--text2)}
+.cov{font-size:10px;font-weight:400;color:var(--text3)}
 
-  /* SCORE */
-  .scbox { text-align: center; min-width: 80px; flex-shrink: 0; }
-  .scn { font-size: 24px; font-weight: 800; font-family: 'Inter', sans-serif; letter-spacing: 2px; color: var(--text); }
-  .scn.live { color: var(--red); }
-  .scsep { color: var(--text3); margin: 0 2px; }
-  .scvs { font-size: 16px; font-weight: 800; color: var(--border); letter-spacing: 3px; font-family: 'Inter', sans-serif; }
-  .scmin { font-size: 10px; color: var(--red); font-weight: 700; margin-top: 2px; }
-  .sctime { font-size: 11px; color: var(--blue); margin-top: 2px; font-weight: 600; }
+/* SCORE */
+.scbox{text-align:center;min-width:80px;flex-shrink:0}
+.scn{font-size:24px;font-weight:800;font-family:'Inter',sans-serif;letter-spacing:2px;color:var(--text)}
+.scn.live{color:var(--red)}
+.scsep{color:var(--text3);margin:0 2px}
+.scvs{font-size:16px;font-weight:800;color:var(--border);letter-spacing:3px;font-family:'Inter',sans-serif}
+.scmin{font-size:10px;color:var(--red);font-weight:700;margin-top:2px}
+.sctime{font-size:11px;color:var(--blue);margin-top:2px;font-weight:600}
 
-  /* CARD BOTTOM */
-  .cbot {
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .venue { font-size: 11px; color: var(--text3); }
-  .comm { font-size: 11px; color: var(--text2); line-height: 1.5; text-align: right; flex: 1; }
-  .crr { display: flex; gap: 10px; font-size: 11px; color: var(--text3); }
-  .res { font-size: 11px; font-weight: 700; color: var(--green); }
+/* CARD BOTTOM */
+.cbot{margin-top:10px;padding-top:8px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.venue{font-size:11px;color:var(--text3)}
+.comm{font-size:11px;color:var(--text2);line-height:1.5;text-align:right;flex:1}
+.crr{display:flex;gap:10px;font-size:11px;color:var(--text3)}
+.res{font-size:11px;font-weight:700;color:var(--green)}
 
-  /* SIDEBAR */
-  .widget {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 12px;
-  }
-  .wtitle {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text3);
-    letter-spacing: .8px;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--border);
-  }
-  .srow {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 5px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 12px;
-  }
-  .srow:last-child { border-bottom: none; padding-bottom: 0; }
-  .spos { width: 14px; color: var(--text3); font-weight: 700; text-align: center; font-family: 'Inter', sans-serif; font-size: 11px; }
-  .sflag { font-size: 16px; }
-  .sbadge { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 800; color: #fff; font-family: 'Inter', sans-serif; flex-shrink: 0; }
-  .sname { flex: 1; font-weight: 600; color: var(--text); }
-  .spts { font-weight: 700; font-family: 'Inter', sans-serif; color: var(--text); }
-  .sgd { color: var(--text3); font-family: 'Inter', sans-serif; width: 26px; text-align: right; font-size: 11px; }
+/* LOADING */
+.loading{text-align:center;padding:40px;color:var(--text3)}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-msg{text-align:center;padding:30px;color:var(--red);font-size:13px}
 
-  /* FOOTER */
-  .footer {
-    border-top: 1px solid var(--border);
-    padding: 14px 16px;
-    text-align: center;
-    font-size: 11px;
-    color: var(--text3);
-  }
-  .footer b { color: var(--text2); font-weight: 600; }
+/* SIDEBAR */
+.widget{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:12px}
+.wtitle{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.8px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.srow{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--border);font-size:12px}
+.srow:last-child{border-bottom:none;padding-bottom:0}
+.spos{width:14px;color:var(--text3);font-weight:700;text-align:center;font-family:'Inter',sans-serif;font-size:11px}
+.sflag{font-size:16px}
+.sbadge{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:800;color:#fff;font-family:'Inter',sans-serif;flex-shrink:0}
+.sname{flex:1;font-weight:600;color:var(--text)}
+.spts{font-weight:700;font-family:'Inter',sans-serif;color:var(--text)}
+.sgd{color:var(--text3);font-family:'Inter',sans-serif;width:28px;text-align:right;font-size:11px}
 
-  /* MOBILE NAV */
-  .mobnav {
-    display: none;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: var(--bg2);
-    border-top: 1px solid var(--border);
-    padding: 6px 0 12px;
-    z-index: 99;
-  }
-  @media (max-width: 480px) { .mobnav { display: flex; justify-content: space-around; } }
-  .mbtn {
-    display: flex; flex-direction: column; align-items: center; gap: 2px;
-    background: none; border: none; cursor: pointer;
-    color: var(--text3); font-family: inherit; padding: 4px 8px;
-  }
-  .mbtn.on { color: var(--green); }
-  .micon { font-size: 18px; }
-  .mlabel { font-size: 10px; font-weight: 600; }
+/* FOOTER */
+.footer{border-top:1px solid var(--border);padding:14px 16px;text-align:center;font-size:11px;color:var(--text3)}
+.footer b{color:var(--text2);font-weight:600}
 
-  /* MODAL */
-  .overlay {
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,.7);
-    z-index: 200;
-    display: flex; align-items: center; justify-content: center;
-    padding: 16px;
-  }
-  .modal {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    width: 100%; max-width: 520px;
-    max-height: 88vh; overflow-y: auto;
-  }
-  .mhead {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-  }
-  .mleague { font-size: 12px; font-weight: 700; color: var(--text3); }
-  .mcls {
-    width: 26px; height: 26px; border-radius: 5px;
-    border: 1px solid var(--border); background: var(--bg3);
-    color: var(--text2); cursor: pointer; font-size: 14px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .mbody { padding: 16px; }
-  .mteams { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
-  .mteam { text-align: center; flex: 1; }
-  .mflag { font-size: 40px; margin-bottom: 6px; }
-  .mbadge { width: 48px; height: 48px; border-radius: 50%; margin: 0 auto 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: #fff; font-family: 'Inter', sans-serif; }
-  .mname { font-size: 14px; font-weight: 700; color: var(--text); }
-  .msbox { text-align: center; min-width: 90px; }
-  .mscore { font-size: 38px; font-weight: 800; letter-spacing: 3px; font-family: 'Inter', sans-serif; color: var(--text); }
-  .mscore.live { color: var(--red); }
-  .mvenue { text-align: center; font-size: 11px; color: var(--text3); margin-bottom: 14px; }
-  .cwrap { background: var(--bg3); border-radius: 6px; padding: 12px; }
-  .chead { font-size: 11px; font-weight: 700; color: var(--text3); letter-spacing: .8px; margin-bottom: 10px; }
-  .citem { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text); line-height: 1.6; }
-  .citem:last-child { border-bottom: none; padding-bottom: 0; }
-  .cmin { font-weight: 700; color: var(--green); margin-right: 5px; font-family: 'Inter', sans-serif; }
+/* MOBILE NAV */
+.mobnav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:1px solid var(--border);padding:6px 0 12px;z-index:99}
+@media(max-width:480px){.mobnav{display:flex;justify-content:space-around}}
+.mbtn{display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:none;cursor:pointer;color:var(--text3);font-family:inherit;padding:4px 8px}
+.mbtn.on{color:var(--green)}
+.micon{font-size:18px}
+.mlabel{font-size:10px;font-weight:600}
 
-  .soon { text-align: center; padding: 60px 0; color: var(--text3); }
-  .soon div:first-child { font-size: 32px; margin-bottom: 8px; }
+/* MODAL */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:flex;align-items:center;justify-content:center;padding:16px}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:12px;width:100%;max-width:520px;max-height:88vh;overflow-y:auto}
+.mhead{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border)}
+.mleague{font-size:12px;font-weight:700;color:var(--text3)}
+.mcls{width:26px;height:26px;border-radius:5px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center}
+.mbody{padding:16px}
+.mteams{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.mteam{text-align:center;flex:1}
+.mflag{font-size:40px;margin-bottom:6px}
+.mbadge{width:48px;height:48px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;font-family:'Inter',sans-serif}
+.mname{font-size:14px;font-weight:700;color:var(--text)}
+.msbox{text-align:center;min-width:90px}
+.mscore{font-size:38px;font-weight:800;letter-spacing:3px;font-family:'Inter',sans-serif;color:var(--text)}
+.mscore.live{color:var(--red)}
+.mvenue{text-align:center;font-size:11px;color:var(--text3);margin-bottom:14px}
+.cwrap{background:var(--bg3);border-radius:6px;padding:12px}
+.chead{font-size:11px;font-weight:700;color:var(--text3);letter-spacing:.8px;margin-bottom:10px}
+.citem{padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--text);line-height:1.6}
+.citem:last-child{border-bottom:none;padding-bottom:0}
+.cmin{font-weight:700;color:var(--green);margin-right:5px;font-family:'Inter',sans-serif}
+
+.soon{text-align:center;padding:60px 0;color:var(--text3)}
+.soon div:first-child{font-size:32px;margin-bottom:8px}
+
+/* STANDINGS TABLE */
+.stand-table{width:100%;border-collapse:collapse;font-size:12px}
+.stand-table th{color:var(--text3);font-weight:600;padding:4px 6px;text-align:left;border-bottom:1px solid var(--border)}
+.stand-table td{padding:6px;border-bottom:1px solid var(--border);color:var(--text)}
+.stand-table tr:last-child td{border-bottom:none}
+.stand-table .num{font-family:'Inter',sans-serif;text-align:center}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <script>
 // ── CLUB COLORS ──────────────────────────────────────────────
-const CLUBS = {
-  "রিয়াল মাদ্রিদ": {s:"RM", c:"#00529F"},
-  "Real Madrid":    {s:"RM", c:"#00529F"},
-  "বার্সেলোনা":    {s:"FCB",c:"#A50044"},
-  "Barcelona":      {s:"FCB",c:"#A50044"},
-  "ম্যান সিটি":    {s:"MC", c:"#6CABDD"},
-  "Man City":       {s:"MC", c:"#1C2C5B"},
-  "চেলসি":         {s:"CFC",c:"#034694"},
-  "Chelsea":        {s:"CFC",c:"#034694"},
-  "আর্সেনাল":      {s:"AFC",c:"#EF0107"},
-  "Arsenal":        {s:"AFC",c:"#EF0107"},
-  "লিভারপুল":      {s:"LFC",c:"#C8102E"},
-  "Liverpool":      {s:"LFC",c:"#C8102E"},
-  "টটেনহাম":       {s:"THF",c:"#132257"},
-  "Tottenham":      {s:"THF",c:"#132257"},
-  "মুম্বাই":        {s:"MI", c:"#004BA0"},
-  "Mumbai":         {s:"MI", c:"#004BA0"},
-  "চেন্নাই":        {s:"CSK",c:"#FDB913"},
-  "Chennai":        {s:"CSK",c:"#FDB913"},
+const CLUBS={
+  "Arsenal":{s:"AFC",c:"#EF0107"},"Chelsea":{s:"CFC",c:"#034694"},
+  "Manchester City":{s:"MC",c:"#6CABDD"},"Liverpool":{s:"LFC",c:"#C8102E"},
+  "Tottenham Hotspur":{s:"THF",c:"#132257"},"Manchester United":{s:"MUN",c:"#DA291C"},
+  "Newcastle United":{s:"NEW",c:"#241F20"},"Aston Villa":{s:"AVL",c:"#95BFE5"},
+  "Real Madrid CF":{s:"RM",c:"#00529F"},"FC Barcelona":{s:"FCB",c:"#A50044"},
+  "Atletico Madrid":{s:"ATM",c:"#CB3524"},"Club Atletico de Madrid":{s:"ATM",c:"#CB3524"},
+  "Bayern München":{s:"FCB",c:"#DC052D"},"Borussia Dortmund":{s:"BVB",c:"#FDE100"},
+  "Paris Saint-Germain FC":{s:"PSG",c:"#003170"},
+  "Juventus FC":{s:"JUV",c:"#000000"},"AC Milan":{s:"MIL",c:"#FB090B"},
+  "Inter Milan":{s:"INT",c:"#010E80"},"SSC Napoli":{s:"NAP",c:"#12A0D7"},
 };
 
-// ── NATIONAL FLAGS ───────────────────────────────────────────
-const FLAGS = {
-  "আর্জেন্টিনা":"🇦🇷","Argentina":"🇦🇷",
-  "ফ্রান্স":"🇫🇷","France":"🇫🇷",
-  "ব্রাজিল":"🇧🇷","Brazil":"🇧🇷",
-  "জার্মানি":"🇩🇪","Germany":"🇩🇪",
-  "বাংলাদেশ":"🇧🇩","Bangladesh":"🇧🇩",
-  "ভারত":"🇮🇳","India":"🇮🇳",
-  "পাকিস্তান":"🇵🇰","Pakistan":"🇵🇰",
-  "ইংল্যান্ড":"🏴󠁧󠁢󠁥󠁮󠁧󠁿","England":"🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-  "স্পেন":"🇪🇸","Spain":"🇪🇸",
-  "পর্তুগাল":"🇵🇹","Portugal":"🇵🇹",
-  "ইতালি":"🇮🇹","Italy":"🇮🇹",
-  "নেদারল্যান্ডস":"🇳🇱","Netherlands":"🇳🇱",
+const FLAGS={
+  "Argentina":"🇦🇷","France":"🇫🇷","Brazil":"🇧🇷","Germany":"🇩🇪",
+  "Bangladesh":"🇧🇩","India":"🇮🇳","Pakistan":"🇵🇰","England":"🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+  "Spain":"🇪🇸","Portugal":"🇵🇹","Italy":"🇮🇹","Netherlands":"🇳🇱",
+  "Belgium":"🇧🇪","Croatia":"🇭🇷","Morocco":"🇲🇦","Senegal":"🇸🇳",
+  "Japan":"🇯🇵","South Korea":"🇰🇷","Australia":"🇦🇺","USA":"🇺🇸",
+  "Mexico":"🇲🇽","Canada":"🇨🇦","Uruguay":"🇺🇾","Colombia":"🇨🇴",
+  "South Africa":"🇿🇦","New Zealand":"🇳🇿","Sri Lanka":"🇱🇰",
+  "Afghanistan":"🇦🇫","West Indies":"🏝️","Zimbabwe":"🇿🇼",
 };
 
-function logoEl(name, size) {
+function teamLogo(name, size) {
   const isLg = size === "lg";
-  if (FLAGS[name]) {
-    return `<span class="${isLg ? "mflag" : "flag"}">${FLAGS[name]}</span>`;
+  const sz = isLg ? 48 : 34;
+  const fs = isLg ? 13 : 10;
+
+  // Check if national team by flag
+  const flag = FLAGS[name];
+  if (flag) {
+    return `<span style="font-size:${isLg?40:26}px;line-height:1;flex-shrink:0">${flag}</span>`;
   }
-  if (CLUBS[name]) {
-    const c = CLUBS[name];
-    const sz = isLg ? 48 : 36;
-    const fs = isLg ? 13 : 10;
-    return `<div class="${isLg ? "mbadge" : "badge"}" style="width:${sz}px;height:${sz}px;background:${c.c};font-size:${fs}px">${c.s}</div>`;
+
+  // Check club
+  const club = CLUBS[name];
+  if (club) {
+    return `<div style="width:${sz}px;height:${sz}px;border-radius:50%;background:${club.c};display:flex;align-items:center;justify-content:center;font-size:${fs}px;font-weight:800;color:#fff;flex-shrink:0;font-family:'Inter',sans-serif">${club.s}</div>`;
   }
-  const sz = isLg ? 48 : 36;
-  return `<div style="width:${sz}px;height:${sz}px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:${isLg?16:12}px;font-weight:800;color:var(--text2);flex-shrink:0">${name?.[0]||"?"}</div>`;
+
+  // Fallback
+  const initials = name.split(' ').map(w=>w[0]).join('').substring(0,3).toUpperCase();
+  return `<div style="width:${sz}px;height:${sz}px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:${fs}px;font-weight:800;color:var(--text2);flex-shrink:0;font-family:'Inter',sans-serif">${initials}</div>`;
 }
 
-// ── DATA ─────────────────────────────────────────────────────
-const FOOTBALL = [
-  {id:1, status:"live", minute:73,
-   league:{bn:"বিশ্বকাপ ২০২৬", en:"World Cup 2026"}, badge:"🏆",
-   home:{bn:"আর্জেন্টিনা", en:"Argentina", score:2},
-   away:{bn:"ফ্রান্স", en:"France", score:1},
-   venue:"MetLife Stadium, New Jersey",
-   commentary:[
-     {min:73, bn:"মেসি দুর্দান্ত এক পাস দিয়ে বক্সে সতীর্থকে খুঁজে নিলেন — গ্যালারি উঠে দাঁড়িয়েছে।", en:"Messi finds his teammate with a brilliant pass inside the box — the crowd is on its feet."},
-     {min:67, bn:"ফ্রান্সের মাপা শট গোলপোস্টে লেগে ফিরে এল। সমতা আসতে আসতেও হলো না।", en:"France's well-placed shot rattles the post — so close to an equalizer."},
-     {min:45, bn:"হাফটাইম — আর্জেন্টিনা ১–০ গোলে এগিয়ে মাঠ ছাড়ল।", en:"Half-time — Argentina lead 1–0 at the break."},
-   ]},
-  {id:2, status:"upcoming", time:{bn:"রাত ১১:০০", en:"11:00 PM"},
-   league:{bn:"লা লিগা", en:"La Liga"}, badge:"🇪🇸",
-   home:{bn:"রিয়াল মাদ্রিদ", en:"Real Madrid", score:null},
-   away:{bn:"বার্সেলোনা", en:"Barcelona", score:null},
-   venue:"Santiago Bernabéu, Madrid", commentary:[]},
-  {id:3, status:"finished",
-   league:{bn:"প্রিমিয়ার লিগ", en:"Premier League"}, badge:"🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-   home:{bn:"ম্যান সিটি", en:"Man City", score:3},
-   away:{bn:"চেলসি", en:"Chelsea", score:1},
-   venue:"Etihad Stadium, Manchester", commentary:[]},
-  {id:4, status:"upcoming", time:{bn:"রাত ২:০০", en:"2:00 AM"},
-   league:{bn:"বিশ্বকাপ ২০২৬", en:"World Cup 2026"}, badge:"🏆",
-   home:{bn:"ব্রাজিল", en:"Brazil", score:null},
-   away:{bn:"জার্মানি", en:"Germany", score:null},
-   venue:"Rose Bowl, Los Angeles", commentary:[]},
-];
-
-const CRICKET = [
-  {id:1, status:"live",
-   league:{bn:"ICC বিশ্বকাপ ২০২৬", en:"ICC World Cup 2026"}, badge:"🏆",
-   home:{bn:"বাংলাদেশ", en:"Bangladesh", score:{bn:"১৮৭/৬", en:"187/6"}, overs:{bn:"৩৮.২", en:"38.2"}},
-   away:{bn:"ভারত", en:"India", score:{bn:"২৪৩/৮", en:"243/8"}, overs:{bn:"৫০.০", en:"50.0"}},
-   crr:{bn:"৬.৪৫", en:"6.45"}, rrr:{bn:"৮.৯২", en:"8.92"},
-   venue:"Shere Bangla National Stadium, Dhaka",
-   commentary:[
-     {bn:"সাকিব এগিয়ে এসে লং-অনের উপর দিয়ে দুর্দান্ত ছক্কা — পুরো গ্যালারি গর্জে উঠল।", en:"Shakib charges and launches a massive six over long-on — the crowd erupts."},
-     {bn:"লিটন দাসের ৪৫ রানের ইনিংস শেষ হলো। দলের জন্য লড়েছেন, তবে শেষটা হলো না।", en:"Liton Das' fine innings of 45 comes to an end. He fought hard for the team."},
-     {bn:"বাংলাদেশের দরকার এখন প্রতি ওভারে ৯-এর বেশি রান — চাপ ক্রমেই বাড়ছে।", en:"Bangladesh need over 9 runs per over from here — the pressure is mounting."},
-   ]},
-  {id:2, status:"upcoming", time:{bn:"দুপুর ২:০০", en:"2:00 PM"},
-   league:{bn:"IPL ২০২৬", en:"IPL 2026"}, badge:"🇮🇳",
-   home:{bn:"মুম্বাই", en:"Mumbai", score:null},
-   away:{bn:"চেন্নাই", en:"Chennai", score:null},
-   venue:"Wankhede Stadium, Mumbai", commentary:[]},
-  {id:3, status:"finished",
-   league:{bn:"টেস্ট সিরিজ", en:"Test Series"}, badge:"🏏",
-   home:{bn:"বাংলাদেশ", en:"Bangladesh", score:{bn:"৩১২ ও ২০৪", en:"312 & 204"}},
-   away:{bn:"পাকিস্তান", en:"Pakistan", score:{bn:"২৮৯ ও ১৯৮", en:"289 & 198"}},
-   result:{bn:"বাংলাদেশ ২৯ রানে জয়ী", en:"Bangladesh won by 29 runs"},
-   venue:"Shere Bangla National Stadium, Dhaka", commentary:[]},
-];
-
-const STANDS = [
-  {bn:"ম্যান সিটি", en:"Man City", pts:78, gd:"+42"},
-  {bn:"আর্সেনাল",  en:"Arsenal",  pts:74, gd:"+38"},
-  {bn:"লিভারপুল", en:"Liverpool", pts:72, gd:"+35"},
-  {bn:"চেলসি",    en:"Chelsea",   pts:65, gd:"+18"},
-  {bn:"টটেনহাম",  en:"Tottenham", pts:60, gd:"+12"},
-];
-
-const DATES = {
-  bn:["গতকাল","আজ","আগামীকাল","শুক্র","শনি"],
-  en:["Yesterday","Today","Tomorrow","Fri","Sat"]
-};
-const NAVS = {
-  bn:["ম্যাচ","লিগ","পছন্দ"],
-  en:["Matches","Leagues","Following"]
-};
-const MOBN = {
-  bn:[{i:"📅",l:"ম্যাচ"},{i:"🏆",l:"লিগ"},{i:"⭐",l:"পছন্দ"},{i:"☰",l:"আরো"}],
-  en:[{i:"📅",l:"Matches"},{i:"🏆",l:"Leagues"},{i:"⭐",l:"Following"},{i:"☰",l:"More"}]
+// ── STATE ────────────────────────────────────────────────────
+let S = {
+  sport: "football",
+  date: 1,
+  nav: 0,
+  lang: "bn",
+  dark: true,
+  detail: null,
+  footballMatches: [],
+  cricketMatches: [],
+  standings: [],
+  loading: false,
+  error: null,
 };
 
-let S = {sport:"football", date:1, nav:0, lang:"bn", dark:true, detail:null};
+const DATES = {bn:["গতকাল","আজ","আগামীকাল","শুক্র","শনি"], en:["Yesterday","Today","Tomorrow","Fri","Sat"]};
+const NAVS = {bn:["ম্যাচ","লিগ","পছন্দ"], en:["Matches","Leagues","Following"]};
+const MOBN = {bn:[{i:"📅",l:"ম্যাচ"},{i:"🏆",l:"লিগ"},{i:"⭐",l:"পছন্দ"},{i:"☰",l:"আরো"}], en:[{i:"📅",l:"Matches"},{i:"🏆",l:"Leagues"},{i:"⭐",l:"Following"},{i:"☰",l:"More"}]};
 
-function tx(o) { return o && typeof o === "object" ? (S.lang==="bn" ? o.bn : o.en) : o; }
-function bn(n) { return S.lang==="bn" ? String(n).replace(/\d/g, d=>"০১২৩৪৫৬৭৮৯"[d]) : String(n); }
+function bn(n) { return S.lang==="bn" ? String(n).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]) : String(n); }
 
+// ── API CALLS ────────────────────────────────────────────────
+async function fetchFootball() {
+  S.loading = true; S.error = null; render();
+  try {
+    const r = await fetch('/api/football?endpoint=today');
+    const data = await r.json();
+    if (data.matches) {
+      S.footballMatches = data.matches;
+    } else {
+      S.error = S.lang==="bn" ? "ডেটা লোড হয়নি" : "Failed to load data";
+    }
+  } catch(e) {
+    S.error = S.lang==="bn" ? "সংযোগ সমস্যা" : "Connection error";
+  }
+  S.loading = false; render();
+}
+
+async function fetchCricket() {
+  S.loading = true; S.error = null; render();
+  try {
+    const r = await fetch('/api/cricket?endpoint=live');
+    const data = await r.json();
+    if (data.data) {
+      S.cricketMatches = data.data;
+    } else {
+      S.error = S.lang==="bn" ? "ডেটা লোড হয়নি" : "Failed to load data";
+    }
+  } catch(e) {
+    S.error = S.lang==="bn" ? "সংযোগ সমস্যা" : "Connection error";
+  }
+  S.loading = false; render();
+}
+
+async function fetchStandings() {
+  try {
+    const r = await fetch('/api/football?endpoint=pl-standings');
+    const data = await r.json();
+    if (data.standings) {
+      S.standings = data.standings[0]?.table || [];
+      render();
+    }
+  } catch(e) {}
+}
+
+// ── STATUS HELPERS ───────────────────────────────────────────
+function getStatus(match) {
+  const s = match.status;
+  if (["IN_PLAY","PAUSED","LIVE","1st innings","2nd innings"].includes(s)) return "live";
+  if (["FINISHED","FT","completed"].includes(s)) return "finished";
+  return "upcoming";
+}
+
+function getMinute(match) {
+  return match.minute || "";
+}
+
+function getScore(match, side) {
+  if (match.score) {
+    const full = match.score.fullTime || match.score.regularTime;
+    if (full) return side === "home" ? full.home : full.away;
+  }
+  return null;
+}
+
+// ── RENDER ───────────────────────────────────────────────────
 function render() {
   document.documentElement.classList.toggle("light", !S.dark);
-  document.body.classList.toggle("en", S.lang==="en");
+  document.body.classList.toggle("en", S.lang === "en");
 
-  const isF = S.sport === "football";
-  const matches = isF ? FOOTBALL : CRICKET;
   const lang = S.lang;
-  const liveCount = matches.filter(m => m.status === "live").length;
-  const live = matches.filter(m => m.status === "live");
-  const upcoming = matches.filter(m => m.status === "upcoming");
-  const finished = matches.filter(m => m.status === "finished");
   const navs = NAVS[lang];
   const mobn = MOBN[lang];
+  const isF = S.sport === "football";
+
+  // Process matches
+  let allMatches = [];
+  if (isF) {
+    allMatches = S.footballMatches.map(m => ({
+      id: m.id,
+      status: getStatus(m),
+      minute: m.minute,
+      league: m.competition?.name || "",
+      badge: "⚽",
+      homeName: m.homeTeam?.name || "",
+      awayName: m.awayTeam?.name || "",
+      homeScore: getScore(m, "home"),
+      awayScore: getScore(m, "away"),
+      venue: m.venue || "",
+      utcDate: m.utcDate,
+    }));
+  } else {
+    allMatches = S.cricketMatches.map(m => ({
+      id: m.id,
+      status: m.matchStarted && !m.matchEnded ? "live" : m.matchEnded ? "finished" : "upcoming",
+      league: m.series_id || m.name || "",
+      badge: "🏏",
+      homeName: m.teams?.[0] || "",
+      awayName: m.teams?.[1] || "",
+      homeScore: m.score?.[0]?.r ? `${m.score[0].r}/${m.score[0].w}` : null,
+      awayScore: m.score?.[1]?.r ? `${m.score[1].r}/${m.score[1].w}` : null,
+      homeOvers: m.score?.[0]?.o || "",
+      awayOvers: m.score?.[1]?.o || "",
+      venue: m.venue || "",
+      status_note: m.status || "",
+    }));
+  }
+
+  const live = allMatches.filter(m => m.status === "live");
+  const upcoming = allMatches.filter(m => m.status === "upcoming");
+  const finished = allMatches.filter(m => m.status === "finished");
+  const liveCount = live.length;
+
+  // Format time
+  function fmtTime(utcDate) {
+    if (!utcDate) return "";
+    const d = new Date(utcDate);
+    return d.toLocaleTimeString(lang==="bn"?"bn-BD":"en-GB", {hour:"2-digit",minute:"2-digit",timeZone:"Asia/Dhaka"});
+  }
 
   document.getElementById("app").innerHTML = `
-    <nav class="nav">
-      <a class="logo" href="#" onclick="return false">
-        <div class="logo-dot">${lang==="bn"?"স্ক":"SK"}</div>
-        <span>${lang==="bn"?"স্কোর কত":"Score Koto"}</span>
-      </a>
-      <div class="nav-mid">
-        ${navs.map((t,i)=>`<button class="ntab ${S.nav===i?"on":""}" onclick="setNav(${i})">${t}</button>`).join("")}
-      </div>
-      <div class="nav-right">
-        ${liveCount > 0 ? `<span style="font-size:12px;font-weight:700;color:var(--red);display:flex;align-items:center;gap:4px"><span class="dot dot-red"></span>${bn(liveCount)} ${lang==="bn"?"লাইভ":"Live"}</span>` : ""}
-        <div class="sport-tog">
-          <button class="sbtn ${S.sport==="football"?"on":""}" onclick="setSport('football')">⚽ ${lang==="bn"?"ফুটবল":"Football"}</button>
-          <button class="sbtn ${S.sport==="cricket"?"on":""}" onclick="setSport('cricket')">🏏 ${lang==="bn"?"ক্রিকেট":"Cricket"}</button>
-        </div>
-        <button class="lbtn" onclick="toggleLang()">${lang==="bn"?"EN":"বাং"}</button>
-        <button class="ibtn" onclick="toggleTheme()">${S.dark?"☀️":"🌙"}</button>
-      </div>
-    </nav>
-
-    <div class="datebar">
-      ${DATES[lang].map((d,i)=>`<button class="dtab ${S.date===i?"on":""}" onclick="setDate(${i})">${d}</button>`).join("")}
+  <nav class="nav">
+    <a class="logo" href="#" onclick="return false">
+      <div class="logo-mark">${lang==="bn"?"স্ক":"SK"}</div>
+      <span>${lang==="bn"?"স্কোর কত":"Score Koto"}</span>
+    </a>
+    <div class="nav-mid">
+      ${navs.map((t,i)=>`<button class="ntab ${S.nav===i?"on":""}" onclick="setNav(${i})">${t}</button>`).join("")}
     </div>
-
-    <div class="wrap">
-      <div>
-        ${S.nav !== 0 ? `<div class="soon"><div>🚧</div><div>${lang==="bn"?"শীঘ্রই আসছে":"Coming Soon"}</div></div>` : `
-        ${live.length > 0 ? `<div class="slabel"><span class="dot dot-red"></span>${lang==="bn"?"এখন চলছে":"LIVE NOW"}</div>${live.map(m=>cardHTML(m,isF,lang)).join("")}` : ""}
-        ${upcoming.length > 0 ? `<div class="slabel"><span class="dot dot-blue"></span>${lang==="bn"?"আসছে":"UPCOMING"}</div>${upcoming.map(m=>cardHTML(m,isF,lang)).join("")}` : ""}
-        ${finished.length > 0 ? `<div class="slabel"><span class="dot dot-gray"></span>${lang==="bn"?"শেষ হয়েছে":"FINISHED"}</div>${finished.map(m=>cardHTML(m,isF,lang)).join("")}` : ""}
-        `}
+    <div class="nav-r">
+      ${liveCount>0?`<span style="font-size:12px;font-weight:700;color:var(--red);display:flex;align-items:center;gap:4px"><span class="dot dot-red"></span>${bn(liveCount)} ${lang==="bn"?"লাইভ":"Live"}</span>`:""}
+      <div class="stog">
+        <button class="sbtn ${S.sport==="football"?"on":""}" onclick="setSport('football')">⚽ ${lang==="bn"?"ফুটবল":"Football"}</button>
+        <button class="sbtn ${S.sport==="cricket"?"on":""}" onclick="setSport('cricket')">🏏 ${lang==="bn"?"ক্রিকেট":"Cricket"}</button>
       </div>
-      <div class="sidebar">
-        <div class="widget">
-          <div class="wtitle">${lang==="bn"?"পয়েন্ট টেবিল · প্রিমিয়ার লিগ":"Standings · Premier League"}</div>
-          ${STANDS.map((s,i) => {
-            const name = lang==="bn" ? s.bn : s.en;
-            const club = CLUBS[name] || CLUBS[s.bn];
-            return `<div class="srow">
-              <div class="spos">${i+1}</div>
-              ${club ? `<div class="sbadge" style="background:${club.c}">${club.s}</div>` : `<span class="sflag">${FLAGS[name]||"🏆"}</span>`}
-              <div class="sname">${name}</div>
-              <div class="sgd">${s.gd}</div>
-              <div class="spts">${s.pts}</div>
-            </div>`;
-          }).join("")}
-        </div>
+      <button class="lbtn" onclick="toggleLang()">${lang==="bn"?"EN":"বাং"}</button>
+      <button class="ibtn" onclick="toggleTheme()">${S.dark?"☀️":"🌙"}</button>
+    </div>
+  </nav>
+
+  <div class="datebar">
+    ${DATES[lang].map((d,i)=>`<button class="dtab ${S.date===i?"on":""}" onclick="setDate(${i})">${d}</button>`).join("")}
+  </div>
+
+  <div class="wrap">
+    <div>
+      ${S.nav !== 0 ? `<div class="soon"><div>🚧</div><div>${lang==="bn"?"শীঘ্রই আসছে":"Coming Soon"}</div></div>` : `
+      ${S.loading ? `<div class="loading"><div class="spinner"></div>${lang==="bn"?"লোড হচ্ছে...":"Loading..."}</div>` : `
+      ${S.error ? `<div class="error-msg">⚠️ ${S.error}</div>` : `
+      ${allMatches.length === 0 ? `<div class="soon"><div>📭</div><div>${lang==="bn"?"আজ কোনো ম্যাচ নেই":"No matches today"}</div></div>` : `
+      ${live.length>0 ? `<div class="slabel"><span class="dot dot-red"></span>${lang==="bn"?"এখন চলছে":"LIVE NOW"}</div>${live.map(m=>cardH(m,isF,lang,fmtTime)).join("")}` : ""}
+      ${upcoming.length>0 ? `<div class="slabel"><span class="dot dot-blue"></span>${lang==="bn"?"আসছে":"UPCOMING"}</div>${upcoming.map(m=>cardH(m,isF,lang,fmtTime)).join("")}` : ""}
+      ${finished.length>0 ? `<div class="slabel"><span class="dot dot-gray"></span>${lang==="bn"?"শেষ হয়েছে":"FINISHED"}</div>${finished.map(m=>cardH(m,isF,lang,fmtTime)).join("")}` : ""}
+      `}`}`}`}
+    </div>
+    <div class="sidebar">
+      <div class="widget">
+        <div class="wtitle">${lang==="bn"?"প্রিমিয়ার লিগ স্ট্যান্ডিংস":"Premier League Standings"}</div>
+        ${S.standings.length > 0 ? `
+        <table class="stand-table">
+          <tr><th>#</th><th>${lang==="bn"?"দল":"Team"}</th><th class="num">P</th><th class="num">GD</th><th class="num">Pts</th></tr>
+          ${S.standings.slice(0,8).map(s=>`
+          <tr>
+            <td class="num spos">${s.position}</td>
+            <td>${teamLogo(s.team?.name||"","sm")} <span style="margin-left:4px">${s.team?.shortName||s.team?.name||""}</span></td>
+            <td class="num">${s.playedGames}</td>
+            <td class="num" style="color:${s.goalDifference>0?"var(--green)":s.goalDifference<0?"var(--red)":"var(--text2)"}">${s.goalDifference>0?"+":""}${s.goalDifference}</td>
+            <td class="num" style="font-weight:700">${s.points}</td>
+          </tr>`).join("")}
+        </table>` : `<div style="text-align:center;color:var(--text3);font-size:12px;padding:10px">${lang==="bn"?"লোড হচ্ছে...":"Loading..."}</div>`}
       </div>
     </div>
+  </div>
 
-    <div class="footer">
-      ${lang==="bn" ? `ডেভেলপ করেছেন <b>মাহবুব হাসান তন্ময়</b>` : `Developed by <b>Mahbub Hasan Tonmoy</b>`}
-    </div>
+  <div class="footer">
+    ${lang==="bn"?`ডেভেলপ করেছেন <b>মাহবুব হাসান তন্ময়</b>`:`Developed by <b>Mahbub Hasan Tonmoy</b>`}
+  </div>
 
-    <div class="mobnav">
-      ${mobn.map((n,i)=>`<button class="mbtn ${S.nav===i?"on":""}" onclick="setNav(${i})"><span class="micon">${n.i}</span><span class="mlabel">${n.l}</span></button>`).join("")}
-      <button class="mbtn" onclick="toggleTheme()"><span class="micon">${S.dark?"☀️":"🌙"}</span><span class="mlabel">${lang==="bn"?"থিম":"Theme"}</span></button>
-    </div>
+  <div class="mobnav">
+    ${mobn.map((n,i)=>`<button class="mbtn ${S.nav===i?"on":""}" onclick="setNav(${i})"><span class="micon">${n.i}</span><span class="mlabel">${n.l}</span></button>`).join("")}
+    <button class="mbtn" onclick="toggleTheme()"><span class="micon">${S.dark?"☀️":"🌙"}</span><span class="mlabel">${lang==="bn"?"থিম":"Theme"}</span></button>
+  </div>
 
-    ${S.detail ? modalHTML(S.detail, isF, lang) : ""}
+  ${S.detail ? modalH(S.detail, isF, lang) : ""}
   `;
 }
 
-function cardHTML(m, isF, lang) {
+function cardH(m, isF, lang, fmtTime) {
   const isLive = m.status === "live";
   const isDone = m.status === "finished";
-  const hn = tx(m.home);
-  const an = tx(m.away);
   return `
-  <div class="card ${isLive?"live":""}" onclick="openDetail(${m.id})">
+  <div class="card" onclick="openDetail(${JSON.stringify(m.id)})">
     <div class="card-top">
-      <span class="league">${m.badge} ${tx(m.league)}</span>
-      ${isLive ? `<span class="status s-live"><span class="dot dot-red"></span>${isF ? bn(m.minute)+"′ " : ""}${lang==="bn"?"লাইভ":"LIVE"}</span>` : ""}
-      ${m.status==="upcoming" ? `<span class="status s-up">${tx(m.time)}</span>` : ""}
+      <span class="league">⚽ ${m.league}</span>
+      ${isLive ? `<span class="status s-live"><span class="dot dot-red"></span>${isF&&m.minute?bn(m.minute)+"′ ":""}${lang==="bn"?"লাইভ":"LIVE"}</span>` : ""}
+      ${m.status==="upcoming" ? `<span class="status s-up">${fmtTime(m.utcDate)||""}</span>` : ""}
       ${isDone ? `<span class="status s-ft">${lang==="bn"?"শেষ":"FT"}</span>` : ""}
     </div>
     <div class="teams">
       <div class="team">
-        ${logoEl(hn,"sm")}
+        ${teamLogo(m.homeName,"sm")}
         <div class="tinfo">
-          <div class="tname">${hn}</div>
-          ${!isF && m.home.score ? `<div class="csc">${tx(m.home.score)} ${m.home.overs ? `<span class="cov">(${tx(m.home.overs)})</span>` : ""}</div>` : ""}
+          <div class="tname">${m.homeName}</div>
+          ${!isF&&m.homeScore?`<div class="csc">${m.homeScore} ${m.homeOvers?`<span class="cov">(${m.homeOvers})</span>`:""}</div>`:""}
         </div>
       </div>
       <div class="scbox">
-        ${isF && (isLive||isDone) ? `<div class="scn ${isLive?"live":""}">${m.home.score}<span class="scsep">–</span>${m.away.score}</div>${isLive?`<div class="scmin">${bn(m.minute)}′</div>`:""}` : ""}
-        ${m.status==="upcoming" ? `<div class="scvs">VS</div><div class="sctime">${tx(m.time)}</div>` : ""}
+        ${isF&&(isLive||isDone)&&m.homeScore!==null ? `<div class="scn ${isLive?"live":""}">${m.homeScore??"-"}<span class="scsep">–</span>${m.awayScore??"-"}</div>${isLive&&m.minute?`<div class="scmin">${bn(m.minute)}′</div>`:""}` : ""}
+        ${m.status==="upcoming" ? `<div class="scvs">VS</div><div class="sctime">${fmtTime(m.utcDate)||""}</div>` : ""}
       </div>
       <div class="team away">
-        ${logoEl(an,"sm")}
+        ${teamLogo(m.awayName,"sm")}
         <div class="tinfo">
-          <div class="tname">${an}</div>
-          ${!isF && m.away.score ? `<div class="csc away">${tx(m.away.score)} ${m.away.overs ? `<span class="cov">(${tx(m.away.overs)})</span>` : ""}</div>` : ""}
+          <div class="tname">${m.awayName}</div>
+          ${!isF&&m.awayScore?`<div class="csc away">${m.awayScore} ${m.awayOvers?`<span class="cov">(${m.awayOvers})</span>`:""}</div>`:""}
         </div>
       </div>
     </div>
-    <div class="cbot">
-      <span class="venue">📍 ${m.venue}</span>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-        ${isDone && m.result ? `<span class="res">🏆 ${tx(m.result)}</span>` : ""}
-        ${!isF && isLive && m.crr ? `<div class="crr"><span>CRR <b style="color:var(--green)">${tx(m.crr)}</b></span><span>RRR <b style="color:var(--red)">${tx(m.rrr)}</b></span></div>` : ""}
-        ${m.commentary.length > 0 ? `<div class="comm">💬 ${lang==="bn"?m.commentary[0].bn:m.commentary[0].en}</div>` : ""}
-      </div>
-    </div>
+    ${m.venue||m.status_note ? `<div class="cbot"><span class="venue">📍 ${m.venue||m.status_note}</span></div>` : ""}
   </div>`;
 }
 
-function modalHTML(m, isF, lang) {
+function modalH(m, isF, lang) {
   const isLive = m.status === "live";
   const isDone = m.status === "finished";
-  const hn = tx(m.home);
-  const an = tx(m.away);
   return `
   <div class="overlay" onclick="if(event.target===this)goBack()">
     <div class="modal">
       <div class="mhead">
-        <span class="mleague">${m.badge} ${tx(m.league)}</span>
+        <span class="mleague">⚽ ${m.league}</span>
         <button class="mcls" onclick="goBack()">✕</button>
       </div>
       <div class="mbody">
-        ${isLive ? `<div style="text-align:center;margin-bottom:12px"><span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--red)"><span class="dot dot-red"></span>${isF?bn(m.minute)+"′ ":""}${lang==="bn"?"লাইভ চলছে":"LIVE"}</span></div>` : ""}
+        ${isLive?`<div style="text-align:center;margin-bottom:12px"><span style="display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;color:var(--red)"><span class="dot dot-red"></span>${isF&&m.minute?bn(m.minute)+"′ ":""}${lang==="bn"?"লাইভ চলছে":"LIVE"}</span></div>`:""}
         <div class="mteams">
-          <div class="mteam">${logoEl(hn,"lg")}<div class="mname">${hn}</div>${!isF&&m.home.score?`<div style="font-size:14px;font-weight:800;color:var(--green);margin-top:4px">${tx(m.home.score)}</div>`:""}</div>
+          <div class="mteam">${teamLogo(m.homeName,"lg")}<div class="mname" style="margin-top:8px">${m.homeName}</div>${!isF&&m.homeScore?`<div style="font-size:14px;font-weight:800;color:var(--green);margin-top:4px">${m.homeScore}</div>`:""}</div>
           <div class="msbox">
-            ${isF && (isLive||isDone) ? `<div class="mscore ${isLive?"live":""}">${m.home.score}<span style="color:var(--text3);margin:0 4px">–</span>${m.away.score}</div>` : ""}
-            ${m.status==="upcoming" ? `<div style="font-size:24px;font-weight:800;color:var(--border);letter-spacing:4px;font-family:'Inter',sans-serif">VS</div><div style="font-size:12px;color:var(--blue);margin-top:6px">${tx(m.time)}</div>` : ""}
+            ${isF&&(isLive||isDone)&&m.homeScore!==null?`<div class="mscore ${isLive?"live":""}">${m.homeScore??"-"}<span style="color:var(--text3);margin:0 4px">–</span>${m.awayScore??"-"}</div>`:""}
+            ${m.status==="upcoming"?`<div style="font-size:24px;font-weight:800;color:var(--border);letter-spacing:4px;font-family:'Inter',sans-serif">VS</div>`:""}
           </div>
-          <div class="mteam">${logoEl(an,"lg")}<div class="mname">${an}</div>${!isF&&m.away.score?`<div style="font-size:14px;font-weight:800;color:var(--text2);margin-top:4px">${tx(m.away.score)}</div>`:""}</div>
+          <div class="mteam">${teamLogo(m.awayName,"lg")}<div class="mname" style="margin-top:8px">${m.awayName}</div>${!isF&&m.awayScore?`<div style="font-size:14px;font-weight:800;color:var(--text2);margin-top:4px">${m.awayScore}</div>`:""}</div>
         </div>
-        ${!isF&&isLive&&m.crr?`<div style="display:flex;gap:16px;justify-content:center;margin-bottom:12px"><span style="font-size:13px;color:var(--text2)">CRR <b style="color:var(--green)">${tx(m.crr)}</b></span><span style="font-size:13px;color:var(--text2)">RRR <b style="color:var(--red)">${tx(m.rrr)}</b></span></div>`:""}
-        ${isDone&&m.result?`<div style="text-align:center;margin-bottom:12px;font-size:13px;color:var(--green);font-weight:700">🏆 ${tx(m.result)}</div>`:""}
-        <div class="mvenue">📍 ${m.venue}</div>
-        ${m.commentary.length > 0 ? `
-        <div class="cwrap">
-          <div class="chead">${lang==="bn"?"লাইভ কমেন্ট্রি":"Live Commentary"}</div>
-          ${m.commentary.map((c,i)=>`
-          <div class="citem" style="${i===m.commentary.length-1?"border:none;padding-bottom:0":""}">
-            ${c.min?`<span class="cmin">${bn(c.min)}′</span>`:""}${lang==="bn"?c.bn:c.en}
-          </div>`).join("")}
-        </div>` : ""}
+        ${m.venue?`<div class="mvenue">📍 ${m.venue}</div>`:""}
       </div>
     </div>
   </div>`;
 }
 
-function setSport(s) { S.sport=s; S.detail=null; render(); }
-function setDate(i) { S.date=i; render(); }
-function setNav(i) { S.nav=i; render(); }
+function setSport(s) {
+  S.sport = s; S.detail = null;
+  if (s === "football") fetchFootball();
+  else fetchCricket();
+}
+function setDate(i) { S.date = i; render(); }
+function setNav(i) { S.nav = i; render(); }
 function toggleLang() { S.lang = S.lang==="bn"?"en":"bn"; render(); }
 function toggleTheme() { S.dark = !S.dark; render(); }
-function openDetail(id) { S.detail = (S.sport==="football"?FOOTBALL:CRICKET).find(m=>m.id===id); render(); }
-function goBack() { S.detail=null; render(); }
+function openDetail(id) {
+  const isF = S.sport === "football";
+  const matches = isF ? S.footballMatches : S.cricketMatches;
+  S.detail = matches.find(m => m.id == id);
+  if (S.detail) {
+    const m = S.detail;
+    S.detail = {
+      id: m.id,
+      status: getStatus(m),
+      minute: m.minute,
+      league: m.competition?.name || m.name || "",
+      homeName: m.homeTeam?.name || m.teams?.[0] || "",
+      awayName: m.awayTeam?.name || m.teams?.[1] || "",
+      homeScore: isF ? getScore(m,"home") : m.score?.[0]?.r ? `${m.score[0].r}/${m.score[0].w}` : null,
+      awayScore: isF ? getScore(m,"away") : m.score?.[1]?.r ? `${m.score[1].r}/${m.score[1].w}` : null,
+      venue: m.venue || "",
+      utcDate: m.utcDate,
+    };
+  }
+  render();
+}
+function goBack() { S.detail = null; render(); }
 
-render();
+// ── INIT ────────────────────────────────────────────────────
+fetchFootball();
+fetchStandings();
+setInterval(fetchFootball, 60000); // refresh every minute
 </script>
 </body>
 </html>
