@@ -40,7 +40,7 @@ body.en{font-family:'Inter',sans-serif}
 /* LAYOUT */
 .wrap{max-width:1100px;margin:0 auto;padding:16px;display:grid;grid-template-columns:1fr 280px;gap:16px}
 @media(max-width:800px){.wrap{grid-template-columns:1fr}.sidebar{display:none}}
-@media(max-width:480px){.wrap{padding:8px;padding-bottom:72px}.nav-mid,.stog{display:none}}
+@media(max-width:480px){.wrap{padding:8px;padding-bottom:72px}.nav-mid{display:none}.stog{display:none}}
 
 /* SECTION */
 .slabel{font-size:11px;font-weight:700;letter-spacing:.8px;color:var(--text3);margin:14px 0 8px;display:flex;align-items:center;gap:6px;padding-bottom:6px;border-bottom:1px solid var(--border)}
@@ -359,7 +359,10 @@ function render(){
   </div>
 
   <div class="mobnav">
-    ${mobn.map((n,i)=>`<button class="mbtn ${S.nav===i?"on":""}" onclick="setNav(${i})"><span class="micon">${n.i}</span><span class="mlabel">${n.l}</span></button>`).join("")}
+    <button class="mbtn ${S.sport==="football"?"on":""}" onclick="setSport('football')"><span class="micon">⚽</span><span class="mlabel">${lang==="bn"?"ফুটবল":"Football"}</span></button>
+    <button class="mbtn ${S.sport==="cricket"?"on":""}" onclick="setSport('cricket')"><span class="micon">🏏</span><span class="mlabel">${lang==="bn"?"ক্রিকেট":"Cricket"}</span></button>
+    ${mobn.slice(0,2).map((n,i)=>`<button class="mbtn ${S.nav===i?"on":""}" onclick="setNav(${i})"><span class="micon">${n.i}</span><span class="mlabel">${n.l}</span></button>`).join("")}
+    <button class="mbtn" onclick="toggleLang()"><span class="micon">🌐</span><span class="mlabel">${lang==="bn"?"EN":"বাং"}</span></button>
     <button class="mbtn" onclick="toggleTheme()"><span class="micon">${S.dark?"☀️":"🌙"}</span><span class="mlabel">${lang==="bn"?"থিম":"Theme"}</span></button>
   </div>
 
